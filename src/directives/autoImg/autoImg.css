@@ -1,0 +1,85 @@
+.auto-img-outer {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+.auto-img-inner {
+  height: 100%;
+}
+.auto-img-item {
+  background-position: top center !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s;
+}
+.auto-img-item>a {
+  display: block;
+  height: 100%;
+}
+.auto-img-item.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.auto-img-outer .arrow-inside {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.arrow-inside {
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+.arrow-inside .iconfont{
+  font-size: 45px;
+  cursor: pointer;
+}
+.arrow-inside>div:hover {
+  color: #fff;
+}
+.arrow-inside .left-arrow {
+ float: left;
+}
+.arrow-inside .right-arrow {
+ float: right;
+}
+
+.auto-img-outer ul {
+  position: absolute;
+  z-index: 3;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  border-radius: 12.5px;
+  background: rgba(255,255,255,.5)
+}
+.auto-img-outer ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.auto-img-outer ul li {
+  width: 15px;
+  height: 15px;
+  float: left;
+  background: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.auto-img-outer ul li:last-child {
+  margin-right: 0;
+}
+
+
+.hide {
+  display: none;
+}

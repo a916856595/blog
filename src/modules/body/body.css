@@ -1,0 +1,9 @@
+.body-outer {
+  padding: 35px 0 42px;
+  margin: -35px 0 -42px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.body-box {
+  padding: 5px 0;
+}

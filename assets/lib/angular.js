@@ -3962,8 +3962,10 @@ forEach({
   },
 
   find: function(element, selector) {
-    if (element.getElementsByTagName) {
+    if (element.getElementsByTagName && typeof selector === 'string' && selector[0] !== '.') {
       return element.getElementsByTagName(selector);
+    } else if (typeof selector === 'string' && selector[0] === '.') {
+      return element.getElementsByClassName(selector.slice(1));
     } else {
       return [];
     }

@@ -1,0 +1,11 @@
+.header-box .menu-btn{
+  border: 1px solid #fff;
+  color: #fff;
+  height: 25px;
+  border-radius: 3px;
+  outline: none;
+}
+.header-box .header-menu-list a {
+  line-height: 25px;
+  color: black;
+}
