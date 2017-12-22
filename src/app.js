@@ -5,8 +5,8 @@
 
   function setBaseStateConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/home',
+      .state('main', {
+        url: '/main',
         views: {
           header: {
             templateUrl: './src/modules/header/header.html',
@@ -34,9 +34,20 @@
             }
           }
         }
-      });
+      })
+      .state('main.home', {
+        url: '/home',
+        views: {
+          left: {
+            template: '<p>leftsa</p>'
+          },
+          aside: {
+            template: '<p>aside</p>'
+          }
+        }
+      })
 
     $urlRouterProvider
-      .otherwise('home');
+      .otherwise('/main/home');
   }
 })()

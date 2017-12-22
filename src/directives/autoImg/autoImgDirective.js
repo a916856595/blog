@@ -11,30 +11,42 @@
              transclude: true,
              link: function (scope, ele, attr) {
                var $ = angular.element;
-               var arrowOuter = ele.find('.arrow-inside');
-               var autoImgList = ele.find('.auto-img-item');
                var nowImg = 0;
                var maxImg = ele.find('.auto-img-item').length - 1;
                var transitionFlag = true;
                var toggleInterval = scope.toggleInterval || 5;
                var autoImgInterval = null;
+               var d_arrowOuter = ele.find('.arrow-inside');
+               var d_autoImgList = ele.find('.auto-img-item');
                var d_pointUl = ele.find('ul');
               
-               //  追加小圆点
-              for (var i = 0; i <= maxImg; i++) {
-                var li = document.createElement('li');
-                li.index = i;
-                $(li).on('click', liClickHandler)
-                d_pointUl.append(li);
-              }
-               ele.on('mouseenter', mouseenterHandler);
-               ele.on('mouseleave', mouseleaveHandler);
-               autoImgList[nowImg].classList.add('active');
-              //  左右切换
-               $(arrowOuter.children()[0]).on('click', function(evt){ toggleImg('-', evt) });
-               $(arrowOuter.children()[1]).on('click', function(evt){ toggleImg('+', evt) });
-              //  自动播放
-              setAutoImgInterval();
+               if (maxImg > 0) {
+                  //  追加小圆点
+                 for (var i = 0; i <= maxImg; i++) {
+                   var d_li = document.createElement('li');
+                   i === 0 ? $(d_li).addClass('active'): null;               
+                   d_li.index = i;
+                   $(d_li).on('click', liClickHandler)
+                   d_pointUl.append(d_li);
+                 }
+
+                 var d_pointLis = $(d_pointUl).children();
+
+                 ele.on('mouseenter', mouseenterHandler);
+                 ele.on('mouseleave', mouseleaveHandler);
+                 
+                 $(d_pointLis[nowImg]).addClass('active');
+                 //  左右切换
+                 $(d_arrowOuter.children()[0]).on('click', function(evt){ toggleImg('-', evt) });
+                 $(d_arrowOuter.children()[1]).on('click', function(evt){ toggleImg('+', evt) });
+                 //  自动播放
+                 setAutoImgInterval();
+               } else {
+                //  单张图片取消显示圆点ul
+                 d_pointUl.remove();
+               }
+              
+               $(d_autoImgList[nowImg]).addClass('active');
 
                function stopBable(e) {
                  if (!e) {
@@ -48,12 +60,12 @@
                };
 
                function showArrow(evt) {
-                 arrowOuter.css('display', 'block');
+                d_arrowOuter.css('display', 'block');
                  stopBable(evt);
                };
 
                function hideArrow(evt) {
-                 arrowOuter.css('display', 'none');
+                d_arrowOuter.css('display', 'none');
                  stopBable(evt);
                };
 
@@ -61,20 +73,20 @@
                  if (transitionFlag) {
                   transitionFlag = false;
                   if (where === '-') {
-                    nowImgRemoveClass();
+                    removeNowImgAndPointClass();
                     nowImg --;
                     nowImg = nowImg < 0 ? maxImg : nowImg;
-                    nowImgAddClass();
+                    addNowImgAndPointClass();
                    } else if (where === '+') {
-                    nowImgRemoveClass();
+                    removeNowImgAndPointClass();
                     nowImg ++;
                     nowImg = nowImg > maxImg ? 0 : nowImg;
-                    nowImgAddClass();
+                    addNowImgAndPointClass();
                    } else {
                     if (where !== nowImg) {
-                      nowImgRemoveClass();
+                      removeNowImgAndPointClass();
                       nowImg = where;
-                      nowImgAddClass();
+                      addNowImgAndPointClass();
                     }
                    }
                    setTimeout(function(){
@@ -82,12 +94,14 @@
                    }, 1000)
                  }
 
-                 function nowImgAddClass () {
-                   $(autoImgList[nowImg]).addClass('active');
+                 function addNowImgAndPointClass () {
+                   $(d_autoImgList[nowImg]).addClass('active');
+                   $(d_pointLis[nowImg]).addClass('active');
                  }
 
-                 function nowImgRemoveClass () {
-                   $(autoImgList[nowImg]).removeClass('active');
+                 function removeNowImgAndPointClass () {
+                   $(d_autoImgList[nowImg]).removeClass('active');
+                   $(d_pointLis[nowImg]).removeClass('active');
                  }
                  stopBable(evt);
                };
@@ -119,17 +133,25 @@
              }
            }
          }])
-         .directive('autoImgItem', [function () {
+         .directive('autoImgItem', ['$state', function ($state) {
            return {
+             rquire: 'autoImg',
              restrict: 'AE',
              replace: true,
-             template: '<div class="auto-img-item"><a ui-sref="url"></a></div>',
+             template: '<div class="auto-img-item"><a></a></div>',
              scope: {
                url: '@',
                img: '@'
              },
-             link: function (scope, ele, attr) {
-               ele.css('background', 'url(' + scope.img +')');
+             link: function (scope, ele, attr, ctrl) {
+               ele.css('background-image', 'url(' + scope.img +')');
+               if (scope.url) {
+                 ele.children().on('click', goState)
+
+                 function goState() {
+                  $state.go(scope.url);
+                };
+               }
              }
            }
          }])

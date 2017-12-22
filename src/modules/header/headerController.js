@@ -1,10 +1,11 @@
-angular.module('app')
-  .controller('headerController', ['$scope', '$window', 'headerService', 'windowResizeService', function ($scope, $window, headerService, windowResizeService){
+(function () {
+  angular.module('app')
+  .controller('headerController', ['$scope', '$window', '$state','headerService', 'windowResizeService', function ($scope, $window, $state, headerService, windowResizeService){
          $scope.headerVar = {
            toggleBtnIsShow: false,
            menuIsShow: true,
            toggleMenu: headerService.toggleMenu
-         }
+         };
 
           checkScreenWidth();
           windowResizeService.pushItem(checkScreenWidth);
@@ -20,4 +21,7 @@ angular.module('app')
             }
             flag = 1;
           };
+
+          $state.go('main.home');
        }])
+})();

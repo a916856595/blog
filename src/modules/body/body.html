@@ -1,11 +1,16 @@
 <div class="body-box">
   <div class="type-area">
     <div class="top">
-      <div auto-img toggle-interval="5">
-        <div auto-img-item url="11" img="./assets/imgs/1.jpg"></div>
-        <div auto-img-item url="11" img="./assets/imgs/2.jpg"></div>
-        <div auto-img-item url="11" img="./assets/imgs/3.jpg"></div>
+      <div class="top-container">
+        <div auto-img toggle-interval="5">
+          <div auto-img-item url="main.home" img="./assets/imgs/1.jpg"></div>
+          <div auto-img-item url="artical1" img="./assets/imgs/2.jpg"></div>
+          <div auto-img-item url="artical2" img="./assets/imgs/3.jpg"></div>
+          <div auto-img-item url="artical3" img="./assets/imgs/4.jpg"></div>
+        </div>
       </div>
     </div>
+    <div ui-view="left"></div>
+    <div ui-view="aside"></div>
   </div>
 </div>
