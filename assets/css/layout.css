@@ -111,13 +111,13 @@
 .col-all-offset-12 {
   margin-left: 100%;
 }
-.txt-all-center {
+.text-all-center {
   text-align: center;
 }
-.txt-all-left {
+.text-all-left {
   text-align: left;
 }
-.txt-all-right {
+.text-all-right {
   text-align: right;
 }
 
@@ -232,14 +232,20 @@
   .col-min-offset-12 {
     margin-left: 100%;
   }
-  .txt-min-center {
+  .text-min-center {
     text-align: center;
   }
-  .txt-min-left {
+  .text-min-left {
     text-align: left;
   }
-  .txt-min-right {
+  .text-min-right {
     text-align: right;
+  }
+  .min-hide {
+    display: none;
+  }
+  .min-show {
+    display: block;
   }
 }
 
@@ -352,14 +358,20 @@
   .col-mid-offset-12 {
     margin-left: 100%;
   }
-  .txt-mid-center {
+  .text-mid-center {
   text-align: center;
   }
-  .txt-mid-left {
+  .text-mid-left {
     text-align: left;
   }
-  .txt-mid-right {
+  .text-mid-right {
     text-align: right;
+  }
+  .mid-hide {
+    display: none;
+  }
+  .mid-show {
+    display: block;
   }
 }
 
@@ -472,14 +484,20 @@
   .col-max-offset-12 {
     margin-left: 100%;
   }
-  .txt-max-center {
+  .text-max-center {
     text-align: center;
   }
-  .txt-max-left {
+  .text-max-left {
     text-align: left;
   }
-  .txt-max-right {
+  .text-max-right {
     text-align: right;
+  }
+  .max-hide {
+    display: none;
+  }
+  .max-show {
+    display: block;
   }
 }
 /* 容器 */
@@ -497,4 +515,11 @@
 }
 .fr {
   float: right;
+}
+
+/* 文本 */
+.text-overflow-hide {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

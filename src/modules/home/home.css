@@ -1,0 +1,15 @@
+.home-box .artical-list li{
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.home-box .artical-list li div>div {
+  padding: 5px 15px;
+}
+.home-box .artical-list .head {
+  line-height: 24px;
+}
+.home-box .artical-list .content p:nth-child(2) {
+  text-indent: 2em;
+  padding-top: 5px;
+} 

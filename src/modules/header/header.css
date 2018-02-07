@@ -1,9 +1,20 @@
+.header-box {
+  padding-top: 40px;
+  position: relative;
+}
 .header-box .menu-btn{
   border: 1px solid #fff;
   color: #fff;
   height: 25px;
   border-radius: 3px;
   outline: none;
+}
+.header-box>div {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9;
 }
 .header-box .header-menu-list a {
   line-height: 25px;

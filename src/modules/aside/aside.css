@@ -1,0 +1,19 @@
+.aside-box .collection-outer {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
+.aside-box .collection-outer>p {
+  line-height: 24px;
+  text-indent: .5em;
+}
+.aside-box .collection-outer li {
+  line-height: 20px;
+  text-indent: 1em;
+  padding: 5px 0;
+}
+.aside-box .collection-outer li:nth-child(2n) {
+  background: #eee;
+}
+.aside-box .collection-outer li:nth-child(2n - 1) {
+  background: #fff;
+}

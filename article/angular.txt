@@ -1,0 +1,73 @@
+directive 自定义指令
+
+1. 参数
+   - restrict: (string) 表明指令的申明方式 'ECMA'
+   - priority: (number) 指令优先级,当存在多个指令时,该指令的执行优先级,由大到小依次执行,当优先级相同时,先申明的先执行,默认值0
+   - terminal: (bealoon) 当存在多个指令时,执行顺序较小的是否取消执行。为true时,较小的不执行,相同优先级的依然执行,默认false
+   - transclude: (bealoon) 是否将当前指令的内容替换到当前模板的 ng-transclude 标签内，需要配合templateUrl使用
+   - require: (string) 指定依赖的指令，并在link函数中作为第四参数传入
+   - replace: (bealoon) 是否替换指令元素,默认false
+   - scope: (bealoon/object) 选择指令作用域的创建方式,false(默认)使用父控制器的作用域;true,从父控制的作用域继承一个新的作用域; {},创建一个新的空作用域,同时可以使用绑定策略
+   - controller: (string/function) 
+
+scope
+
+1. $watch(watchValue, watchFunc, deepWatch)
+   - 用于监视本scope中值的变化
+   - watchValue: string 被监视的值名称
+   - watchFunc: func function(newVal, oldVal, scope){}
+   - deepWatch: bealoon  是否深度监视
+   - $watch返回一个取消监视的函数，调用它即可取消监视(性能消耗较大)
+2. 绑定策略：
+   - @: 查找当前指令上的同名属性并赋值
+   - @someAttr： 查找当前指令上的some-attr属性并赋值 
+   - =: 查找当前指令上的同名属性的值并与父元素的该值进行双向绑定
+   - =someAttr： 查找当前指令上的some-attr属性值并与父元素的该值进行双向绑定 
+   - &: 查找当前指令上的同名属性值并与父控制器上该同名方法绑定
+   - &someAttr: 查找当前指令上的some-attr属性值并与父控制器上该同名方法绑定
+
+服务
+
+1. $parse(expression)(context)
+   - expression: string 需要解析的表达式字符串
+   - context: object 表达式解析的环境,存储变量
+   - local: object 表达式解析的本地环境,存在相同的变量时,local中的优先级高于context
+   - 第一次调用时返回一个可以传入执行环境的回调函数,第二次调用时执行表达式
+2. $interploate(text, mustHaveExpression[, allOrNothing])(context)
+   - text: string 可以包含差值表达式的字符串
+   - mustHaveExpression: bealoon 当这个参数为true时,text必须包含差值表达式,否则将返回null
+   - trustedContext: true 如果提供了这个参数值，那么在返回相应的函数之前，将会使用$sce.getTrusted(interpolatedResult, trustedContext)对返回的结果做处理
+   - allOrNothing: bealoon 如果这个参数的值被设置为true，那么只有text中所有嵌入的表达式没有一个被转换为undefined的时候才会返回我们期望的函数
+   - 第一次调用返回一个可以传入执行上下文的函数,第二次调用返回表达式的执行结果
+
+表单
+
+1. 验证方式：(在表单元素上添加对应属性)
+   - require： 必填项
+   - ng-minlength="{length}": 最小长度,必须大于等于该length
+   - ng-maxlength="{length}": 最大长度,必须小于等于该length
+   - ng-pattern="/pattern/": 模式匹配,需要通过指定的正则
+   - type="email"： 验证是否为电子邮件
+   - type="number"： 验证是否为数字
+   - type="url： 验证是否为url
+2. 验证结果属性：(js中表单对应控制器获取)
+   - formName.inputName.$pristine: 未修改过的表单,只要未修改过表单就为true
+   - formName.inputName.$dirty：修改过的表单,只要修改过表单就为true
+   - formName.inputName.$valid: 合法表单,当表单内容合法时,返回true
+   - formName.inputName.$invalid: 不合法表单,当表单内容不合法时,返回true
+   - formName.inputName.$error: 错误,验证表单的所有验证内容,如果不通过返回true
+3. 验证时添加的类名： 
+   - .ng-pristine { } 未修改的
+   - .ng-dirty { } 修改过的
+   - .ng-valid { } 验证通过的
+   - .ng-invalid { } 验证不通过的
+4. ng-messages
+   - 写法：
+         <form name="formName">
+           <input name="inpName" ng-model="userName" require ng-maxlength="20">
+           <div ng-messages="formNName.inpName.$error">
+             <div ng-message="require">name is require</div>
+             <div ng-message="maxlength">name is too long</div>
+           <div>
+         </form>
+   - ng-messages-include: 错误信息模板,在ng-messages指令上添加ng-message-include="templateUrl"可以引用模板文件的内容

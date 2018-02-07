@@ -1,5 +1,5 @@
 (function () {
-  // 仅作为启动文件，设置头身脚的视图启动
+  // 作为启动文件，设置路由
   angular.module('app', ['ui.router', 'oc.lazyLoad'])
     .config(['$stateProvider', '$urlRouterProvider', setBaseStateConfig]);
 
@@ -39,10 +39,20 @@
         url: '/home',
         views: {
           left: {
-            template: '<p>leftsa</p>'
+            templateUrl: './src/modules/home/home.html',
+            resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['./src/modules/home/home.css'])
+              }]
+            }
           },
           aside: {
-            template: '<p>aside</p>'
+            templateUrl: './src/modules/aside/aside.html',
+            resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['./src/modules/aside/aside.css'])
+              }]
+            }
           }
         }
       })

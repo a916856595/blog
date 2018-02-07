@@ -2,6 +2,7 @@ html,body {
   height: 100%;
   /* overflow-x: hidden; */
   min-width: 375px;
+  background-color: #eee;
 }
 .type-area {
   max-width: 1200px;
@@ -9,30 +10,34 @@ html,body {
 }
 /* 主题色 */
 .color,a.color,.color a {
-  color: skyblue;
+  color: skyblue !important;
 }
 .color-bg {
-  background-color: skyblue;
+  background-color: skyblue !important;
+}
+.color-bd {
+  border-color: skyblue !important;
 }
 /* 字体大小 */
 html {
   font-size: 16px;
 }
-.txt-title1 {
+.text-title1 {
   font-size: 40px
 }
-.txt-title2 {
+.text-title2 {
   font-size: 35px
 }
-.txt-title3 {
+.text-title3 {
   font-size: 30px
 }
-.txt-title4 {
+.text-title4 {
   font-size: 25px
 }
-.txt-title1,.txt-title2,.txt-title3,.txt-title4  {
+.text-title1,.text-title2,.text-title3,.text-title4  {
   font-weight: 500;
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }

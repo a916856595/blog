@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>洪长俊的博客</title>
+    <link rel="shortcut icon" type="images/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/component.css">
@@ -14,7 +15,7 @@
 </head>
 <body ng-app="app">
     <div ui-view="header"></div>
-    <div ui-view="body" class="body-outer"></div>
+    <div ui-view="body" class="body-outer clearfix"></div>
     <div ui-view="footer"></div>
 
     <script src="./assets/lib/angular.js"></script>
@@ -25,5 +26,6 @@
     <script src="./src/services/toolService.js"></script>
     <script src="./src/services/windowResizeService.js"></script>
     <script src="./src/directives/autoImg/autoImgDirective.js"></script>
+    <script src="./src/directives/getArticle/getArticleDirective.js"></script>
 </body>
 </html>
