@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="FlappyBird.css">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    </head>
+    <body>
+    <canvas id="canvas" class="hide">
+    	
+    </canvas>
+    <audio src="music/fly.ogg"></audio>
+    <audio src="music/point.ogg"></audio>
+    <audio src="music/die.ogg"></audio>
+    <audio src="music/hit.ogg"></audio>
+    <div class="mask">
+
+    </div>
+    <div class="set">
+    	<div class="start-window">
+    		<p id="start-game">开始游戏</p>
+    		<p class="sel">选择难度</p>
+    	</div>
+    	<div class="sel-game hide" data-speed="normal" data-type="normal">
+			<p>简单</p>
+			<p>加速</p>
+			<p>无缝</p>
+			<p id="sure-sel">确定</p>
+		</div>
+		<div class="pause hide">
+			<p>当前模式:<span id="type1">普通</span> <span id="type2">普通</span></p>
+			<p>历史高分:<span id="highScore">0</span></p>
+			<p>当前分数:<span id="nowScore">0</span></p>
+			<p id="conBtn">继续</p>
+			<p id="reBtn">重新开始</p>
+		</div>
+        <div id="re">
+            
+        </div>
+    </div>
+    </body>
+    <script src="FlappyBird.js"></script>
+</html>

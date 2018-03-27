@@ -133,7 +133,7 @@
              }
            }
          }])
-         .directive('autoImgItem', ['$state', function ($state) {
+         .directive('autoImgItem', ['$state', '$window', function ($state, $window) {
            return {
              rquire: 'autoImg',
              restrict: 'AE',
@@ -146,10 +146,15 @@
              link: function (scope, ele, attr, ctrl) {
                ele.css('background-image', 'url(' + scope.img +')');
                if (scope.url) {
-                 ele.children().on('click', goState)
+                 ele.children().on('click', goState);
 
                  function goState() {
-                  $state.go(scope.url);
+                  var reg = /.html$/;
+                   if (reg.test(scope.url)) {
+                     $window.open(scope.url);
+                   } else {
+                     $state.go(scope.url);
+                   }
                 };
                }
              }

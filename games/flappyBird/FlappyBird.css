@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+canvas {
+	border:1px solid black;
+	margin:0 auto;
+	display:block;
+}
+.set {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.sel-game {
+	z-index: 8;
+}
+.set .start-window,.set .sel-game ,.set .pause{
+	font-size:30px;
+	text-align:center;
+	padding:30px;
+	background:white;
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	border-radius:10px;
+	box-shadow:0 0 10px 0 black;
+	z-index:6
+}
+.set .start-window>p,.set .sel-game>p,.set .pause>p {
+	padding:10px;
+	border:1px solid transparent;
+	border-radius:5px;
+	cursor:pointer;
+}
+.set .start-window>p:hover,.set .sel-game>p:hover,.set .pause>p:hover {
+	border:1px solid skyblue;
+	box-shadow:0 0 20px 0 skyblue;
+}
+.set .start-window .sel {
+	position:relative;
+}
+
+.hide {
+	display:none;
+}
+.mask {
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	background:rgba(0,0,0,.5);
+	z-index:5;
+}
+.active {
+	background:skyblue;
+}
+#re {
+	width:40px;
+	height:46px;
+	position:absolute;
+	left:50%;
+	top:0;
+	transform:translate(-50%);
+	z-index:2;
+	background:url(imgs/restart.png);
+}

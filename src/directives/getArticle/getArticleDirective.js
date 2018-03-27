@@ -10,7 +10,7 @@
                           </div>
                           <div class="content">
                             <p>{{response.title}}</p>
-                            <p>{{response.content}}</p>
+                            <pre>{{response.content}}</pre>
                           </div>
                         </div>`,
              scope: {
