@@ -1,0 +1,8 @@
+/* bread-navigator-css */
+.bread-navigator-box .bread-navigator {
+  background-color: #fff;
+}
+
+.bread-navigator-box .bread-navigator li {
+  float: left;
+}

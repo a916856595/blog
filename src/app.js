@@ -17,13 +17,22 @@
               }]
             }
           },
-          body: {
-            templateUrl: './src/modules/body/body.html',
+          navigator: {
+            templateUrl: './src/modules/navigator/navigator.html',
+            controller: 'NavigatorController',
+            controllerAs: 'vm',
             resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load(['/src/modules/body/body.css'])
+                return $ocLazyLoad.load(['/src/modules/navigator/navigator.css', '/src/modules/navigator/navigatorController.js'])
               }]
             }
+          },
+          body: {
+            template: '<div class="body-box"><div class="type-area">' + 
+              '<div ui-view="top"></div>' +
+              '<div ui-view="left" class="col-all-12 col-min-10 left-view"></div>' +
+              '<div ui-view="aside" class="col-all-12 col-min-2 aside-view"></div>' +
+            '</div></div>'
           },
           footer: {
             templateUrl: './src/modules/footer/footer.html',
@@ -38,6 +47,16 @@
       .state('main.home', {
         url: '/home',
         views: {
+          top: {
+            templateUrl: './src/modules/body/body.html',
+            controller: 'BodyController',
+            controllerAs: 'vm',
+            resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['/src/modules/body/body.css', '/src/modules/body/bodyController.js'])
+              }]
+            }
+          },
           left: {
             templateUrl: './src/modules/home/home.html',
             resolve: {
@@ -51,6 +70,29 @@
             resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load(['./src/modules/aside/aside.css'])
+              }]
+            }
+          }
+        }
+      })
+
+      .state('main.article', {
+        url: '/article',
+        views: {
+          left: {
+            template: '<div ui-view="article"></div>',
+          }
+        }
+      })
+      .state('main.article.list', {
+        url: '/list',
+        views: {
+          article: {
+            templateUrl: './src/modules/article/articleList.html',
+            controller: 'ArticleListController',
+            resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['./src/modules/article/article.css', './src/modules/article/articleList.html', './src/modules/article/articleList.controller.js'])
               }]
             }
           }

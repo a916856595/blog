@@ -24,7 +24,7 @@
                   //  追加小圆点
                  for (var i = 0; i <= maxImg; i++) {
                    var d_li = document.createElement('li');
-                   i === 0 ? $(d_li).addClass('active'): null;               
+                   i === 0 ? $(d_li).addClass('active'): null;
                    d_li.index = i;
                    $(d_li).on('click', liClickHandler)
                    d_pointUl.append(d_li);

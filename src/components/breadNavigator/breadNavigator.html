@@ -1,0 +1,16 @@
+<div class="bread-navigator-box">
+  <div class="type-area">
+    <ul class="bread-navigator clearfix padding-container">
+      <li>
+        <span>当前位置:&nbsp;</span>
+      </li>
+      <li ng-repeat="routerInfo in vm.routerResultArr track by $index">
+        <span>
+          <a ui-sref="{{ routerInfo.url }}" ng-bind="routerInfo.name" ng-if="!$last"></a>
+          <span ng-bind="routerInfo.name" ng-if="$last"></span>
+        </span>
+        <span ng-if="!$last">&gt;</span>
+      </li>
+    </ul>
+  </div>
+</div>

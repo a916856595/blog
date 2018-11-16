@@ -15,9 +15,11 @@
 </head>
 <body ng-app="app">
     <div ui-view="header"></div>
+    <div ui-view="navigator"></div>
     <div ui-view="body" class="body-outer clearfix"></div>
     <div ui-view="footer"></div>
 
+    <script src="./assets/lib/lodash.min.js"></script>
     <script src="./assets/lib/angular.js"></script>
     <script src="./assets/lib/angular-ui-router.js"></script>
     <script src="./assets/lib/ocLazyLoad.js"></script>
@@ -27,5 +29,7 @@
     <script src="./src/services/windowResizeService.js"></script>
     <script src="./src/directives/autoImg/autoImgDirective.js"></script>
     <script src="./src/directives/getArticle/getArticleDirective.js"></script>
+
+    <script src="./src/components/breadNavigator/breadNavigatorComponent.js"></script>
 </body>
 </html>
