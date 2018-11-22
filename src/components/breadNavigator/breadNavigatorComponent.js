@@ -39,6 +39,11 @@
               router: 'main.article.detail',
               children: []
             }]
+          }, {
+            url: 'login',
+            name: '登录',
+            router: 'main.login',
+            children: []
           }
         ]
       }];
@@ -51,6 +56,7 @@
 
       function updateNavigatorInfo() {
         var currentObj = routerTransitionData;
+        vm.routerResultArr = [];
         _.forEach(routerArr, function (item, index) {
           _.forEach(currentObj, function (childItem) {
             if (childItem.url === item) {

@@ -11,12 +11,15 @@
     <link rel="stylesheet" href="./assets/css/component.css">
     <link rel="stylesheet" href="./assets/css/setting.css">
     <link rel="stylesheet" href="./assets/css/iconfont.css">
+    <link rel="stylesheet" href="./assets/css/module.css">
     <link rel="stylesheet" href="./src/directives/autoImg/autoImg.css">
 </head>
 <body ng-app="app">
     <div ui-view="header"></div>
-    <div ui-view="navigator"></div>
-    <div ui-view="body" class="body-outer clearfix"></div>
+    <div class="body-outer clearfix">
+        <div ui-view="navigator"></div>
+        <div ui-view="body"></div>
+    </div>
     <div ui-view="footer"></div>
 
     <script src="./assets/lib/lodash.min.js"></script>

@@ -17,7 +17,7 @@
                getArticle: '@'
              },
              link: function(scope, ele, attr) {
-              $http.get('/getArticle.asp?path=' + scope.getArticle).then(function (result) {
+              $http.get('/request/article/getArticle.asp?path=' + scope.getArticle).then(function (result) {
                 scope.response = result.data;
                 $http.get(scope.response.content).then(function (content) {
                   scope.response.content = content.data;

@@ -53,7 +53,7 @@
             controllerAs: 'vm',
             resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load(['/src/modules/body/body.css', '/src/modules/body/bodyController.js'])
+                return $ocLazyLoad.load(['/src/modules/body/bodyController.js'])
               }]
             }
           },
@@ -79,7 +79,7 @@
       .state('main.article', {
         url: '/article',
         views: {
-          left: {
+          top: {
             template: '<div ui-view="article"></div>',
           }
         }
@@ -90,9 +90,41 @@
           article: {
             templateUrl: './src/modules/article/articleList.html',
             controller: 'ArticleListController',
+            controllerAs: 'vm',
             resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load(['./src/modules/article/article.css', './src/modules/article/articleList.html', './src/modules/article/articleList.controller.js'])
+              }]
+            }
+          }
+        }
+      })
+      .state('main.article.detail', {
+        url: '/detail',
+        views: {
+          article: {
+            templateUrl: './src/modules/article/articleDetail.html',
+            controller: 'ArticleDetailController',
+            controllerAs: 'vm',
+            resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['./src/modules/article/article.css', './src/modules/article/articleDetail.html', './src/modules/article/articleDetail.controller.js'])
+              }]
+            }
+          }
+        }
+      })
+
+      .state('main.login', {
+        url: '/login',
+        views: {
+          top: {
+            templateUrl: './src/modules/login/login.html',
+            controller: 'LoginController',
+            controllerAs: 'vm',
+            resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['./src/modules/login/login.controller.js'])
               }]
             }
           }

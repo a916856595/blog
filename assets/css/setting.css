@@ -5,9 +5,26 @@ html,body {
   background-color: #eee;
 }
 .type-area {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
+
+.body-outer {
+  padding: 35px 0 38px;
+  margin: -35px 0 -38px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.body-box .top-container {
+  padding: 0 0 5px;
+}
+.body-box .left-view,.body-box .aside-view {
+  box-sizing: border-box;
+}
+.body-box .left-view {
+  padding-right: 5px;
+}
+
 /* 主题色 */
 .color,a.color,.color a {
   color: skyblue !important;
@@ -23,18 +40,26 @@ html {
   font-size: 16px;
 }
 .text-title1 {
-  font-size: 40px
+  font-size: 40px;
+  line-height: 50px;
 }
 .text-title2 {
-  font-size: 35px
+  font-size: 35px;
+  line-height: 45px;
 }
 .text-title3 {
-  font-size: 30px
+  font-size: 30px;
+  line-height: 40px;
 }
 .text-title4 {
-  font-size: 25px
+  font-size: 25px;
+  line-height: 35px;
 }
-.text-title1,.text-title2,.text-title3,.text-title4  {
+.text-title5 {
+  font-size: 25px;
+  line-height: 25px;
+}
+.text-title1,.text-title2,.text-title3,.text-title4,.text-title5  {
   font-weight: 500;
 }
 a {
@@ -47,4 +72,62 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
+}
+
+/* 常用class */
+.bd-t {
+  border-top: 1px solid #eee;
+}
+.bd-b {
+  border-bottom: 1px solid #eee;
+}
+.bd-tb {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.bd-l {
+  border-left: 1px solid #eee;
+}
+.bd-r {
+  border-right: 1px solid #eee;
+}
+.bd-lr {
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+.bd-all {
+  border: 1px solid #eee;
+}
+
+.bd-nf-b {
+  position: relative;
+}
+.bd-nf-b:after {
+  width: 98%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #eee;
+}
+
+.collection-outer {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
+.collection-outer>p {
+  line-height: 24px;
+  text-indent: .5em;
+}
+.collection-outer li {
+  line-height: 20px;
+  text-indent: 1em;
+  padding: 5px 0;
+}
+.collection-outer li:nth-child(2n) {
+  background: #eee;
+}
+.collection-outer li:nth-child(2n - 1) {
+  background: #fff;
 }

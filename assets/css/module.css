@@ -1,0 +1,23 @@
+.login-outer {
+  background-color: #fff;
+  height: 400px;
+  position: relative;
+}
+.login-outer .login-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.login-outer .login-box .input-line {
+  margin-bottom: 12px;
+}
+.login-outer .login-box .input-line input {
+  border: 1px solid #aaa;
+}
+.login-outer .login-box .input-line .login-btn {
+  width: 100%;
+  color: #fff;
+  border: none;
+  line-height: 25px;
+}
